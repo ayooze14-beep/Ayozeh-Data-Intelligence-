@@ -1,109 +1,139 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ayozeh Data Intelligence (ADI) – Data & AI Services</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayozeh Data Intelligence Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: url('data-charts-bg.png') no-repeat center center fixed; background-size: cover; color: #1f2937; line-height: 1.6; }
-    header { background: rgba(37, 99, 235, 0.85); color: #fff; padding: 50px 20px; text-align: center; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; }
-    header img { max-height: 80px; margin-bottom: 15px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background-color: #f8f9fa; color: #212529; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Header */
+    header { background: #1e1e2f; color: #fff; padding: 60px 20px; text-align: center; }
+    header img { width: 80px; margin-bottom: 20px; }
     header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    header p { font-size: 1.1rem; }
+    header p { font-size: 1.2rem; color: #bbb; }
 
-    .section { padding: 60px 20px; max-width: 1100px; margin: auto; background: #e0f2fe; border-radius: 15px; margin-bottom: 40px; transition: transform 0.3s, box-shadow 0.3s; }
-    .section:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+    /* Projects Section */
+    .projects { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+    .projects h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; color: #1e1e2f; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 
-    h2 { color: #111827; font-size: 2rem; margin-bottom: 30px; text-align: center; }
-    .services, .portfolio { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-
-    .card, .portfolio-card { background: #fefefe; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; }
-    .card:hover, .portfolio-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
-
-    .card h3, .portfolio-card h3 { margin-bottom: 15px; color: #2563eb; }
-
-    .cta { text-align: center; margin-top: 50px; }
-    .btn { display: inline-block; background: #2563eb; color: #fff; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; transition: background 0.3s, transform 0.3s; }
-    .btn:hover { background: #1e40af; transform: translateY(-3px); }
-
-    footer { background: rgba(17,24,39,0.95); color: #f9fafb; padding: 30px; text-align: center; border-top-left-radius: 25px; border-top-right-radius: 25px; }
-    .logo-placeholder { max-height: 100px; margin-bottom: 15px; }
-    p { margin-bottom: 15px; }
-    iframe { width: 100%; height: 500px; border: none; border-radius: 15px; margin-bottom: 20px; transition: transform 0.3s; }
-    iframe:hover { transform: scale(1.02); }
-
-    .portfolio-img {
-      width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      margin-bottom: 15px;
-      transition: transform 0.3s, box-shadow 0.3s;
+    /* Project Cards */
+    .project-card { position: relative; overflow: hidden; border-radius: 15px; cursor: pointer; }
+    .project-card img { width: 100%; display: block; transition: transform 0.5s ease; }
+    .project-card:hover img { transform: scale(1.1); }
+    .project-card .overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(30,30,47,0.85); color: #fff;
+      padding: 15px; text-align: center;
+      transform: translateY(100%); transition: transform 0.4s ease;
+      font-weight: 600;
     }
-    .portfolio-img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
+    .project-card:hover .overlay { transform: translateY(0); }
 
-    @media (max-width: 768px) { header h1 { font-size: 2rem; } h2 { font-size: 1.6rem; } iframe { height: 300px; } }
+    /* Contact Section */
+    .contact { background: #1e1e2f; color: #fff; padding: 60px 20px; text-align: center; }
+    .contact h2 { font-size: 2rem; margin-bottom: 20px; }
+    .contact a { display: inline-block; margin: 10px 15px; padding: 12px 25px; background: #ff6b6b; color: #fff; border-radius: 50px; font-weight: 600; transition: background 0.3s; }
+    .contact a:hover { background: #ff4757; }
+
+    /* Footer */
+    footer { background: #f1f3f5; text-align: center; padding: 20px; font-size: 0.9rem; color: #666; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      .projects h2, .contact h2 { font-size: 1.7rem; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <img src="logo.png" alt="Ayozeh Data Intelligence (ADI) Logo" class="logo-placeholder">
-    <h1>Ayozeh Data Intelligence (ADI)</h1>
-    <p>Power BI • AI Chatbots • Google Ads</p>
+    <img src="images/ChatGPT Image Dec 12, 2025, 07_31_29 PM.png" alt="Logo">
+    <h1>Ayozeh Data Intelligence</h1>
+    <p>Data & Analytics Portfolio</p>
   </header>
 
-  <div class="section">
-    <h2>Our Services</h2>
-    <div class="services">
-      <div class="card">
-        <h3>Power BI Dashboards</h3>
-        <p>Professional dashboards for restaurants, gyms, shops, and companies. Turn data into actionable insights and make better business decisions.</p>
-      </div>
-      <div class="card">
-        <h3>AI Chatbots</h3>
-        <p>24/7 customer support bots using Power Virtual Agents. Deploy on website, WhatsApp, or Facebook for instant responses and automation.</p>
-      </div>
-      <div class="card">
-        <h3>Google Ads Management</h3>
-        <p>Run campaigns that bring real customers. Perfect for restaurants, gyms, clinics, and online stores with measurable ROI.</p>
-      </div>
+  <!-- Projects Section -->
+
+<section class="projects">
+  <h2>My Dashboards</h2>
+  <div class="grid">
+    <div class="project-card">
+      <img src="images/iphone3.jpg" alt="Restaurant Sales Dashboard">
+      <div class="overlay">Restaurant Sales Dashboard</div>
+    </div>
+    <div class="project-card">
+      <img src="images/iphone.jpg" alt="Customer Insights Dashboard">
+      <div class="overlay">Customer Insights Dashboard</div>
+    </div>
+    <div class="project-card">
+      <img src="images/iphone3.jpg" alt="Sales & Marketing Dashboard">
+      <div class="overlay">Sales & Marketing Dashboard</div>
+    </div>
+    <div class="project-card">
+      <img src="images/iphone5.jpg" alt="Analytics Summary Dashboard">
+      <div class="overlay">Analytics Summary Dashboard</div>
+    </div>
+
+    <div class="project-card">
+      <img src="images/xiis2.jpg" alt="Analytics Summary Dashboard">
+      <div class="overlay">Analytics Summary Dashboard</div>
+    </div>
+
+    <div class="project-card">
+      <img src="images/xiis3.jpg" alt="Analytics Summary Dashboard">
+      <div class="overlay">Analytics Summary Dashboard</div>
     </div>
   </div>
+</section>
 
-  <!-- Portfolio Section -->
-  <div class="section">
-    <h2>Portfolio</h2>
-    <div class="portfolio">
-      
-      <!-- Restaurant Sales Dashboard -->
-      <div class="portfolio-card">
-        <h3>Restaurant Sales Dashboard</h3>
-        <img src="images/iphone.jpg">
-      </div>
-      
-      <!-- Marketing Performance Analytics -->
-      <div class="portfolio-card">
-        <h3>Marketing Performance Analytics</h3>
-        <img src="images/iphone3.jpg">
-        <!--  <iframe src="https://app.powerbi.com/view?r=YOUR_POWERBI_EMBED_LINK"></iframe> -->
-      </div>
 
+
+
+
+
+  <!-- <section class="projects">
+    <h2>My Dashboards</h2>
+    <div class="grid">
+      <div class="project-card">
+        <img src="images/iphone5.jpg" alt="Restaurant Sales Dashboard">
+        <div class="overlay">Restaurant Sales Dashboard</div>
+      
+     
+      
+      <div class="project-card">
+        <img src="images/iphone.jpg" alt="Customer Insights Dashboard">
+        <div class="overlay">Customer Insights Dashboard</div>
+      
+      
+      <div class="project-card">
+        <img src="images/iphone3.jpg" alt="Sales & Marketing Dashboard">
+        <div class="overlay">Sales & Marketing Dashboard</div>
+      
+      <div class="project-card">
+        <img src="images/iphone5.jpg" alt="Analytics Summary Dashboard">
+        <div class="overlay">Analytics Summary Dashboard</div>
+      </div>
     </div>
-  </div>
+  </section> -->
 
-  <!-- Call To Action -->
-  <div class="section cta">
+  <!-- Contact Section -->
+  <section class="contact">
     <h2>Contact Me</h2>
-    <p>Let’s grow your business today.</p>
-    <a class="btn" href="https://wa.me/254112510072">WhatsApp Me</a>
-  </div>
+    <a href="https://snapchat.com/t/OyOTGQop" target="_blank">Snapchat</a>
+    <a href="https://wa.me/254112510072" target="_blank">WhatsApp</a>
+  </section>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Ayozeh Data Intelligence (ADI). All rights reserved.</p>
+    &copy; 2025 Ayozeh Data Intelligence. All Rights Reserved.
   </footer>
+
 </body>
 </html>
